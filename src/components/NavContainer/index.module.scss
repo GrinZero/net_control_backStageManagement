@@ -1,0 +1,11 @@
+.md-w-\[full-3\],.md-w-\[full-3-1\/6\]{
+    width: 100vw;
+}
+@media (min-width: 768px){
+    .md-w-\[full-3\]{
+        width: calc(100vw - 0.75rem);
+    }
+    .md-w-\[full-3-1\/6\]{
+        width: calc(83.333333vw - 0.75rem);
+    }
+}

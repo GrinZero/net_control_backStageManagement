@@ -1,0 +1,45 @@
+.success-template{
+    background-color: #35bea1;
+}
+.fail-template{
+    background-color: #ec6262;
+}
+.template{
+    display: flex;
+    color: white;
+    width: 18rem;
+    height: 2.75rem;
+    flex-direction: row;
+    align-items: center;
+    border-radius: .5625rem;
+    box-shadow: 0px 0px 6px 3px rgba(117, 117, 117, 0.08);
+}
+.popupMessageContain{
+    position: relative;
+    width: min-content;
+    height: min-content;
+    cursor: pointer;
+    $direction:top, right, bottom, left;
+    @each $item in $direction{
+        .popupMessage-#{$item}{
+            position: absolute;
+            @if($item == bottom or $item == top){
+                left:50%;
+                @if($item==top){
+                    bottom:100%;
+                }@else{
+                    top:100%
+                }
+                transform: translate(-50%,0);
+            }@else{
+                top:50%;
+                @if($item==left){
+                    right:100%;
+                }@else{
+                    left:100%
+                }
+                transform: translate(0,-50%);
+            }
+        }
+    } 
+}

@@ -1,0 +1,79 @@
+.mes-detail-control {
+  label {
+    padding: 5px 2px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 0.75rem;
+    align-items: center;
+    span {
+      color: rgb(75, 75, 75);
+      font-size: 0.5rem;
+      margin-right: 0.5rem;
+      width: 4.5rem;
+    }
+    input {
+      background-color: white;
+      border: solid 0.6px #f1f4f6;
+      text-indent: 0.5rem;
+      border-radius: 3px;
+      color: #666;
+      width: 10rem;
+      transition: all 0.75s ease-out;
+    }
+    input:hover {
+      border: solid 0.6px #7fa1f7;
+    }
+    input:active {
+      border: solid 0.6px #7fa1f7;
+    }
+    select {
+      width: 10rem;
+      option {
+        background-color: white;
+        border: solid 0.6px #f1f4f6;
+        transform: scale(2);
+        color: #666;
+      }
+    }
+  }
+}
+.testbutton {
+  $color: #7fa1f7;
+  z-index: 1;
+  outline: none;
+  border: none;
+  background-color: $color;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 4px solid $color;
+    transform: scale(1);
+    transform-origin: center;
+    border-radius: inherit;
+  }
+  &:hover::before {
+    transition: all 0.75s ease-out;
+    border: 1px solid#e6f7ff;
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+@keyframes jelly {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  25%,
+  75% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+}

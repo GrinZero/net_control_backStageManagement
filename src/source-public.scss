@@ -1,0 +1,133 @@
+.main {
+  width: 100%;
+}
+button{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+:root {
+    //圆角
+  --bd-1--: 27px;
+  --bd-2--: 18px;
+  --bd-3--: 9px;
+  --bd-4--: 4.5px;
+  //颜色
+  --page-bgcolor--:#f6f6f6;
+  --bg-white--: #f8fafb;
+  --grey-50--:#cdd1d4;
+  --grey-100--:#eef2f5;
+  --blue--:#7FA1F7;
+  --blue-500--:#93b6ea;
+  --green--:#7ff799;
+  --red--:#f77f7f;
+  //大小
+  --font-size-high-2--: 1.5rem;
+  --font-size-high-1--: 1.2rem;
+  --font-size-1--: 1rem;
+  --font-size-low-1--: .75rem;
+  --font-size-low-2--: .65rem;
+
+  //边距
+}
+.yuan::before{
+  content: '￥';
+  margin-right: .3rem;
+}
+.px-2\.5\%{
+  padding:0 2.5%;
+}
+.w-10vw{
+  width: 10vw;
+}
+.w-90\%{
+  width: 90%;
+}
+.w-95\%{
+  width: 95%;
+}
+.h-30vw{
+  height: 30vw;
+}
+@media (min-width: 768px){
+    .md\:w-nor{
+      width: calc(100% - 2.5rem);
+    }
+}
+.j-bg-white{
+  background-color: var(--bg-white--);
+}
+.j-bg-red{
+  background-color: var(--red--);
+}
+.j-bg-blue{
+  background-color: var(--blue--);
+}
+.j-grey-50{
+  color: var(--grey-50--);
+}
+.j-grey-100{
+  color: var(--grey-100--);
+}
+.j-green{
+  color: var(--green--);
+}
+.j-blue{
+  color: var(--blue--);
+}
+.j-red{
+  color: var(--red--);
+}
+.font-size-l1{
+    font-size: var(--font-size-low-1--);
+}
+.font-size-1{
+    font-size: var(--font-size-1--);
+}
+.font-size-l2{
+    font-size: var(--font-size-low-2--);
+}
+.font-size-h1{
+    font-size: var(--font-size-high-1--);
+}
+.font-size-h2{
+    font-size: var(--font-size-high-2--);
+}
+#root{
+    background-color: var(--page-bgcolor--);
+}
+body{
+    background-color: var(--page-bgcolor--) !important;
+}
+@for $i from 1 through 4{
+  .bd-r-#{$i},.rounded-#{$i}{
+    border-radius: var(--bd-#{$i}--);
+  }
+}
+.flexRow,
+.flexCol,
+.flexCenter {
+  display: flex;
+  align-items: center;
+}
+.flexRow {
+  flex-direction: row !important;
+}
+.flexCol,
+.flexCenter {
+  flex-direction: column;
+}
+.flexCenter {
+  justify-content: center;
+}
+a:active{
+  background-color: transparent;
+}
+.animate__fastest{
+  --animate-duration:.36s;
+}
+.animate__ease{
+  animation-timing-function: ease;
+}
+input:focus-visible{
+  outline: none;
+}

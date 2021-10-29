@@ -1,0 +1,10 @@
+.work {
+  width: 90%;
+  margin-left: 5%;
+}
+@media (min-width: 768px) {
+  .work {
+    width: 60vw;
+    margin-left: 0px;
+  }
+}
