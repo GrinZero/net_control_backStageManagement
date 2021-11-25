@@ -34,11 +34,11 @@ function Select(props) {
       <span>{props.range[index]}</span>
       <i className={`fas fa-chevron-down ${styles["i"]}`}></i>
       {active ? (
-        <div className={`${styles.options}`}>
-          <div className={`${styles.optionsIn}`} style={{width:width}}>
+        <div className={`${styles["options"]}`}>
+          <div className={`${styles["optionsIn"]}`} style={{width:width}}>
             {props.range.map((item, id) => (
               <div
-                className={`${styles.rangeitem} ${
+                className={`${styles["rangeitem"]} ${
                   index === id ? styles["rangeitem-active"] : ""
                 }`}
                 key={item}

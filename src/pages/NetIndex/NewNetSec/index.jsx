@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
- import styles from "./index.module.css";
+import styles from "./index.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   update_newNetSecProgress_by_index,
@@ -97,7 +97,7 @@ function NewNetSec() {
         <NewNetSecMesDetail mesDetail={mesDetail} />
         {mesDetail.money ? (
           <div
-            className={`w-95% pl-2 h-18 relative flex flex-col text-sm ${styles["mes-detail-control"]}}`}
+            className={`w-95% pl-2 h-18 relative flex flex-col text-sm ${styles["mes-detail-control"]}`}
             key={mesDetail.rindex+"-"+mesDetail.index}
           >
             <button

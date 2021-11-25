@@ -56,7 +56,7 @@ function WorkInfoLeft() {
                 {item.desc}
               </span>
               <span
-                className={`w-6/12 relative flex flex-row-reverse items-center`}
+                className={`w-5/12 relative flex flex-row-reverse items-center`}
               >
                 <span className={`text-gray-500 text-xs mx-2`}>
                   {item.after}

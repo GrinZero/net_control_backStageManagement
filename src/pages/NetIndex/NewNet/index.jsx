@@ -65,16 +65,21 @@ function NewNet() {
         let reader = new FileReader();
         reader.onload = (item) => {
           let { result } = item.currentTarget;
-          result=result.split("----------------------微信支付账单明细列表--------------------,,,,,,,,\r\n")[1]
+          let temp=result.split("交易时间,交易类型,交易对方,商品,收/支,金额(元),支付方式,当前状态,交易单号,商户单号,备注\r\n")
+          if (!temp[1]) {
+            temp=result.split("交易时间,交易类型,交易对方,商品,收/支,金额(元),支付方式,当前状态,交易单号,商户单号,备注")
+          }
+          result=temp[1]
+          console.log({result})
           result = result.split("\n")
-          result.splice(0,1);
           result = result.map((item) => {
             let data = item.split(",");
             return {
-              orderNumber: data[8]?.replace("\t", ""),
-              inMoney: (data[4] === "收入"||data[4] === "已收钱") ? +data[5].replace("¥", "") : " ",
+              orderNumber: data[8]?.replace(/\t/g, "")?.replace(/"/g,""),
+              inMoney: (data[4] === "收入"||data[4] === "已收钱") ? +data[5].replace(data[5][0], "") : " ",
             };
           });
+          console.log(result)
           result=result.filter(item=>item.inMoney!==" ")
           dispatch(updateWorkSpaceOrder({ data: result }));
         };
@@ -87,7 +92,7 @@ function NewNet() {
       {/* 导入区 */}
       <div className={`flexRow w-95% justify-around`}>
         {source.map((item) => (
-          <div className={`flexCenter p-5 md:p-8`} key={item.text}>
+          <div className={`flexCenter py-5 md:py-8`} key={item.text}>
             <label className={`flexCenter cursor-pointer`}>
               <img src={item.icon} width="45" height="auto" />
               <span className={`text-gray-400 font-semibold mt-2`}>

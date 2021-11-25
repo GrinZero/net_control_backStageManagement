@@ -15,7 +15,7 @@ module.exports = {
       css:["src/**/**/*.css","src/**/**/**/*.css","src/*.css"],
       defaultExtractor: content => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
       keyframes: true,
-      safelist:['body','html','a',/^_/]
+      safelist:['body','html','a',/^_/,/^popupMessage/,/-template$/]
     }),
   ],
 };

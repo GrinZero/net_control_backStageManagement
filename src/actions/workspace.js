@@ -110,7 +110,9 @@ const f_progressTo_newNetThird=()=>dispatch=>{
     type:"progressTo_newNetThird_start"
   })
   let data=store.getState().workspaceReducer.newNetSecProgress;
-  data=data.map(item=>item.data).flat().map(item=>{
+  data=data.map(item=>item.data)
+  .flat()
+  .map(item=>{
     return {
       _openid:item._openid,
       money:item.money,
@@ -125,7 +127,7 @@ const f_progressTo_newNetThird=()=>dispatch=>{
   console.log('data',data )
   goNewNetThird({data})
   .then(res=>{
-    downloadXlsx(res.data.getNetRecord)
+    downloadXlsx(res.data.getNetRecord,res.data.owner)
     dispatch({
       type:"progressTo_newNetThird_finish",
       payload:res.data.getNetRecord

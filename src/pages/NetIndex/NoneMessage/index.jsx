@@ -25,6 +25,9 @@ function NoneMessage() {
           }}
         >
           <div className={`m-3`}>导出时间：{item._createTime}</div>
+          {
+            item.name?<div className={`m-3 text-gray-500`}>提示:{item.name}</div>:<></>
+          }
           <div className={`m-3 text-gray-500`}>导出单数:{item.list.length}</div>
           <div className={`absolute right-5 text-base bottom-5 text-blue-500`}>
             下载

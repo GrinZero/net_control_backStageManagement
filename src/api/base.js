@@ -111,7 +111,7 @@ const downloadOrder=async item=>{
   console.log(res.data.source.data)
   downloadXlsx(res.data.source.data)
 }
-const downloadXlsx=(data)=>{
+const downloadXlsx=(data,name)=>{
   console.log('data',data )
   let newData=data.map(item=>{
     return {
@@ -123,12 +123,13 @@ const downloadXlsx=(data)=>{
       "证件有效期":item.idcardTime,
       "证件地址":item.idcardAddress,
       "联系方式":item.phone,
-      "参加活动(宽度/融合)":"宽度",
+      "参加活动(宽度/融合)":"宽带",
       "宽带套餐内容(半年/一年)":item.pack.indexOf("|")!==-1?item.pack.split("|")[1]:item.pack,
       "速率(50M/100M/200M)":item.pack.indexOf("|")!==-1?item.pack.split("|")[0]:item.pack,
       "融合号码":"",
       "总金额":item.money,
-      "办网类型":item.type
+      "办网类型":item.type,
+      "支付单号":item.payID
     }
   })
   let last=newData.reduce((a,b)=>{
@@ -138,6 +139,7 @@ const downloadXlsx=(data)=>{
   },{
     "总金额":0
   })
+  last['办网类型']="处理人："+name
   newData.push(last)
   let ws=XLSX.utils.json_to_sheet(newData)
   let wb=XLSX.utils.book_new()
